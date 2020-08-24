@@ -1,0 +1,35 @@
+{% extends 'common.html' %}
+
+{% block naveen %}
+    {% load static %}
+
+    <table align="center" border="2">
+    <tr><th>IDNO</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.idno }}</th>
+        <th>{{ x.name }}</th>
+        <th>{{ x.salary }}</th>
+        <th>
+            <form action="{% url 'show_update' %}">
+            <input type="hidden" name="t1" value="{{ x.idno }}">
+            <button type="submit">update</button>
+            </form>
+        </th>
+
+        <th>
+        <a href="{% url 'delete' %}?no={{ x.idno }}">delete</a>
+
+        </th>
+
+    </tr>
+    {% endfor %}
+
+    </table>
+
+{% endblock %}

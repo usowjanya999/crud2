@@ -1,0 +1,17 @@
+{% extends 'common.html' %}
+
+{% block naveen %}
+    <form action="{% url 'update_emp' %}" method="post">
+    {% csrf_token %}
+
+
+<table align="center" border="2">
+<tr><th>Employee updating></th></tr>
+<tr><td><input type="number" readonly name="t1" value="{{ data.idno }}"></td></tr>
+<tr><td><input type="text" name="t2" value="{{ data.name }}"></td></tr>
+<tr><td><input type="number" name="t3" value="{{ data.salary }}"></td></tr>
+<tr><button type="submit">save</button> </tr>
+</table>
+    </form>
+
+{% endblock %}
